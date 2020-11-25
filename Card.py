@@ -1,34 +1,24 @@
 class Card:
-    def __init__(self,value=0,suit="",shape=""):
+    def __init__(self,value,shape):
         self.value=value
-        self.suit=suit
         self.shape=shape
         self.cards={1:"Ace",2:"Two",3:"Three",4:"Four",5:"Five",6:"Six",7:"Seven",8:"Eight",9:"Nine",10:"Ten",11:"Jack",12:"Queen",13:"King"}
-        self.shapes={"Diamond":1,"Spade":2,"Heart":3,"Club":4}
-
-    def cardvalue(self,value):
-        self.value=value
         self.suit=self.cards[self.value]
-        return self.cards[self.value]
-
-    def shapevalue(self,shape):
-        self.shape=shape
-        return self.shapes[self.shape]
+        self.shapes={"Diamond":1,"Spade":2,"Heart":3,"Club":4}
+        self.shapevalue=self.shapes[self.shape]
 
     def __eq__(self,other):
-        if self.value==other.value:
+        if self.value==other.value and self.shape==other.shape:
             return True
         else:
             return False
 
+    def __str__(self):
+        return f"{self.suit} of {self.shape}s"
 
 
-
-
-
-card=Card()
-print(card.cardvalue(13))
-print(card.value)
-print(card.suit)
-print(card.shapevalue("Diamond"))
-print(card.shape)
+card=Card(13,"Diamond")
+card2=Card(13,"Diamond")
+print(card.__str__())
+print(card2.__str__())
+print(card==card2)
