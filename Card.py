@@ -30,7 +30,7 @@ class Card:
 
 
 card=Card(13,"Diamond")
-card2=Card(13,"Spade")
+card2=Card(12,"Spade")
 print(card.__str__())
 print(card2.__str__())
 print(card.isBigger(card2))
