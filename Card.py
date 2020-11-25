@@ -24,7 +24,7 @@ class Card:
         elif self.value==other.value:
             if self.shapevalue>other.shapevalue:
                 return f"{self} is the bigger card."
-            if self.shapevalue<other.shapevalue:
+            elif self.shapevalue<other.shapevalue:
                 return f"{other} is the bigger card."
 
 
