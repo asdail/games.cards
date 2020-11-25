@@ -3,13 +3,14 @@ from Card import Card
 class test_Card(TestCase):
 
     def setUp(self):
-        self.card=Card(13, "Diamond")
-        self.card2=Card(12, "Spade")
-
+        pass
     def tearDown(self):
         pass
 
     def test_is_bigger(self):
+        self.card=Card(13, "Diamond")
+        self.card2=Card(12, "Spade")
+
         self.assertEqual(self.card.isBigger(self.card2),"King of Diamonds is the bigger card.")
 
         self.card.value=11
@@ -25,5 +26,5 @@ class test_Card(TestCase):
 
         self.card2.shape="Diamond"
         self.card.shape="Club"
-        print(self.card)
+        print(self.card.isBigger(self.card2))
         self.assertEqual(self.card2.isBigger(self.card),"Queen of Clubs is the bigger card.")
