@@ -1,30 +1,27 @@
 from unittest import TestCase
 from Card import Card
-class test_Card(TestCase):
-
+class TestCard(TestCase):
     def setUp(self):
-        pass
+        self.card1=Card(2,"Diamond")
+        self.card2=Card(12,"Heart")
+        self.card3=Card(12,"Club")
     def tearDown(self):
         pass
+    def test___repr__(self):
+        self.assertEqual(self.card1.__str__(),'Two of Diamonds')
+        self.assertEqual(self.card2.__str__(),'Queen of Hearts')
+        self.assertEqual(self.card3.__str__(),'Queen of Clubs')
 
-    def test_is_bigger(self):
-        self.card=Card(13, "Diamond")
-        self.card2=Card(12, "Spade")
+    def test__eq__(self):
+        self.card4=Card(2,"Diamond")
+        self.assertTrue(self.card1==self.card4)
+        self.assertFalse(self.card2==self.card3)
+        self.card4=Card(10,"Diamond")
+        self.assertFalse(self.card1==self.card4)
 
-        self.assertEqual(self.card.isBigger(self.card2),"King of Diamonds is the bigger card.")
+    def test_isBigger(self):
+        self.assertTrue(self.card1<self.card2)
+        self.assertTrue(self.card2<self.card3)
 
-        self.card.value=11
-        self.assertEqual(self.card.isBigger(self.card2),"Queen of Spades is the bigger card.")
-
-        self.card.value=12
-        self.assertEqual(self.card.isBigger(self.card2),"Queen of Spades is the bigger card.")
-
-        self.card.shape="Diamond"
-        self.card2.shape="Club"
-        print(self.card)
-        self.assertEqual(self.card2.isBigger(self.card),"Queen of Clubs is the bigger card.")
-
-        self.card2.shape="Diamond"
-        self.card.shape="Club"
-        print(self.card.isBigger(self.card2))
-        self.assertEqual(self.card2.isBigger(self.card),"Queen of Clubs is the bigger card.")
+    def test_invalidValue(self):
+        self.assertRaises(KeyError,self.card1.__init__(2,"Diamond"),2,14)

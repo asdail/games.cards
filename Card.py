@@ -13,7 +13,7 @@ class Card:
         else:
             return False
 
-    def __str__(self):
+    def __repr__(self):
         return f"{self.suit} of {self.shape}s"
 
     def __gt__(self,other):
@@ -26,3 +26,6 @@ class Card:
                 return False
         else:
             return False
+
+card1=Card(1,"Heart")
+print(card1)
