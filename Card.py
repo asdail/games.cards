@@ -16,21 +16,13 @@ class Card:
     def __str__(self):
         return f"{self.suit} of {self.shape}s"
 
-    def isBigger(self,other):
+    def __gt__(self,other):
         if self.value>other.value:
-            return f"{self} is the bigger card."
-        elif self.value<other.value:
-            return f"{other} is the bigger card."
-        elif self.value==other.value:
-            if self.shapevalue>other.shapevalue:
-                return f"{self} is the bigger card."
-            if self.shapevalue<other.shapevalue:
-                return f"{other} is the bigger card."
-
-
-
-card=Card(13,"Diamond")
-card2=Card(13,"Spade")
-print(card.__str__())
-print(card2.__str__())
-print(card.isBigger(card2))
+            return True
+        elif self.value == other.value:
+            if self.shapevalue > other.shapevalue:
+                return True
+            else:
+                return False
+        else:
+            return False
