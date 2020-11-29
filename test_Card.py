@@ -8,9 +8,9 @@ class TestCard(TestCase):
     def tearDown(self):
         pass
     def test___repr__(self):
-        self.assertEqual(self.card1.__str__(),'Two of Diamonds')
-        self.assertEqual(self.card2.__str__(),'Queen of Hearts')
-        self.assertEqual(self.card3.__str__(),'Queen of Clubs')
+        self.assertEqual(self.card1.__repr__(),'Two of Diamonds')
+        self.assertEqual(self.card2.__repr__(),'Queen of Hearts')
+        self.assertEqual(self.card3.__repr__(),'Queen of Clubs')
 
     def test__eq__(self):
         self.card4=Card(2,"Diamond")
