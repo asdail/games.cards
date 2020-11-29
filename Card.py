@@ -26,6 +26,3 @@ class Card:
                 return False
         else:
             return False
-
-card1=Card(1,"Heart")
-print(card1)
